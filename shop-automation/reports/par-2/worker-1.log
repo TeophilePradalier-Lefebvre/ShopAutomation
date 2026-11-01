@@ -1,0 +1,244 @@
+# worker 1 | port 3100 | specs: cypress/e2e/06-support.cy.js, cypress/e2e/api/02-tickets.cy.js, cypress/e2e/07-support-validation.cy.js, cypress/e2e/02-catalog.cy.js, cypress/e2e/05-cookie-banner.cy.js
+SHOP demo app (UI + API v1) running on http://localhost:3100
+Warning: The allowCypressEnv configuration option is enabled. This allows any browser code to read values from Cypress.env(). This is insecure and will be removed in a future major version.
+
+1. Replace Cypress.env() calls with cy.env() (for sensitive values) or Cypress.expose() (for public configuration)
+2. Set allowCypressEnv: false in your Cypress configuration to disable Cypress.env()
+
+Learn more: https://on.cypress.io/cypress-env-migration
+
+
+================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        15.21.1                                                                        │
+  │ Browser:        Electron 138 (headless)                                                        │
+  │ Node Version:   v24.19.0 (/usr/bin/node)                                                       │
+  │ Specs:          5 found (06-support.cy.js, api/02-tickets.cy.js, 07-support-validation.cy.js,  │
+  │                 02-catalog.cy.js, 05-cookie-banner.cy.js)                                      │
+  │ Searched:       cypress/e2e/06-support.cy.js, cypress/e2e/api/02-tickets.cy.js, cypress/e2e/07 │
+  │                 -support-validation.cy.js, cypress/e2e/02-catalog.cy.js, cypress/e2e/05-cookie │
+  │                 -banner.cy.js                                                                  │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  06-support.cy.js                                                                (1 of 5)
+
+
+  06 - Support / return request
+    ✓ UI-SUP-01 - submits a valid request, confirms it and proves it was stored (2840ms)
+    ✓ UI-SUP-02 - blocks an empty form, names every missing field and sends nothing (382ms)
+    ✓ UI-SUP-07 - asks for confirmation: cancel keeps the request, confirm deletes it (829ms)
+    ✓ UI-SUP-08 - keeps a submitted request after a full page reload (2711ms)
+    ✓ UI-SUP-09 - regression: the catalogue still searches after the Support view was added (1511ms)
+    ✓ UI-SUP-10 - a second user never sees another user request (502ms)
+
+
+  6 passing (9s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        6                                                                                │
+  │ Passing:      6                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     8 seconds                                                                        │
+  │ Spec Ran:     06-support.cy.js                                                                 │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started compressing: Compressing to 28 CRF                                                     
+  -  Finished compressing: 1 second                                                  
+
+  -  Video output: /home/user/cypress-ui-lab/cypress/videos/06-support.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  api/02-tickets.cy.js                                                            (2 of 5)
+
+
+  API 02 - return requests (tickets)
+    ✓ API-09 - refuses an unauthenticated call with 401 and a Bearer challenge (67ms)
+    ✓ API-10 - rejects an invalid payload with 422 and one message per field (38ms)
+    ✓ API-11 - creates a request (201 + Location) that can be read back identically (47ms)
+    ✓ API-12 - updates the status, deletes the request, then answers 404 (69ms)
+    ✓ API-13 - a second user cannot read or delete another user request (403) (85ms)
+
+
+  5 passing (397ms)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        5                                                                                │
+  │ Passing:      5                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     0 seconds                                                                        │
+  │ Spec Ran:     api/02-tickets.cy.js                                                             │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started compressing: Compressing to 28 CRF                                                     
+  -  Finished compressing: 0 seconds                                                 
+
+  -  Video output: /home/user/cypress-ui-lab/cypress/videos/api/02-tickets.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  07-support-validation.cy.js                                                     (3 of 5)
+
+
+  07 - Support form validation
+    ✓ UI-SUP-03 - accepts the lowest accepted quantity (1) (2630ms)
+    ✓ UI-SUP-03 - accepts the highest accepted quantity (5) (2509ms)
+    ✓ UI-SUP-04 - refuses an order reference that is not SHOP-12345 (data-driven) (2466ms)
+    ✓ UI-SUP-04 - refuses a full name of two characters (data-driven) (2339ms)
+    ✓ UI-SUP-04 - refuses a quantity of six (data-driven) (2442ms)
+    ✓ UI-SUP-04 - refuses a description of eighteen characters (data-driven) (1940ms)
+    ✓ UI-SUP-04 - refuses a purchase date in the future (data-driven) (2436ms)
+    ✓ UI-SUP-04 - refuses a purchase date older than one year (data-driven) (2421ms)
+    ✓ UI-SUP-04 - refuses an unchecked return policy (data-driven) (2372ms)
+    ✓ UI-SUP-05 - refuses an unsupported file type before calling the API (2468ms)
+    ✓ UI-SUP-05b - refuses a file heavier than 1 MB (2563ms)
+    ✓ UI-SUP-06 - updates the character counter live and caps the text area at 500 (943ms)
+
+
+  12 passing (28s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        12                                                                               │
+  │ Passing:      12                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     27 seconds                                                                       │
+  │ Spec Ran:     07-support-validation.cy.js                                                      │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started compressing: Compressing to 28 CRF                                                     
+  -  Finished compressing: 2 seconds                                                 
+
+  -  Video output: /home/user/cypress-ui-lab/cypress/videos/07-support-validation.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  02-catalog.cy.js                                                                (4 of 5)
+
+
+  02 - Catalogue : recherche et tri
+    ✓ filtre le catalogue sur un terme de recherche (732ms)
+    ✓ affiche un etat vide explicite quand aucun produit ne correspond (557ms)
+    ✓ trie le catalogue par prix croissant (316ms)
+
+
+  3 passing (2s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        3                                                                                │
+  │ Passing:      3                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     1 second                                                                         │
+  │ Spec Ran:     02-catalog.cy.js                                                                 │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started compressing: Compressing to 28 CRF                                                     
+  -  Finished compressing: 0 seconds                                                 
+
+  -  Video output: /home/user/cypress-ui-lab/cypress/videos/02-catalog.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  05-cookie-banner.cy.js                                                          (5 of 5)
+
+
+  05 - Bandeau cookies
+    ✓ masque le bandeau apres acceptation (249ms)
+
+
+  1 passing (272ms)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     0 seconds                                                                        │
+  │ Spec Ran:     05-cookie-banner.cy.js                                                           │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started compressing: Compressing to 28 CRF                                                     
+  -  Finished compressing: 0 seconds                                                 
+
+  -  Video output: /home/user/cypress-ui-lab/cypress/videos/05-cookie-banner.cy.js.mp4
+
+
+================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ ✔  06-support.cy.js                         00:08        6        6        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  api/02-tickets.cy.js                     401ms        5        5        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  07-support-validation.cy.js              00:27       12       12        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  02-catalog.cy.js                         00:01        3        3        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  05-cookie-banner.cy.js                   275ms        1        1        -        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ✔  All specs passed!                        00:39       27       27        -        -        -  
+
+
+# worker 1 PASSED in 62s

@@ -1,0 +1,257 @@
+# worker 1 | port 3100 | specs: tests\ui\06-support.cy.js, tests\api\02-tickets.cy.js, tests\ui\07-support-validation.cy.js, tests\ui\02-catalog.cy.js, tests\ui\05-cookie-banner.cy.js
+SHOP demo app (UI + API v1) running on http://localhost:3100
+
+Warning: The allowCypressEnv configuration option is enabled. This allows any browser code to read values from Cypress.env(). This is insecure and will be removed in a future major version.
+
+1. Replace Cypress.env() calls with cy.env() (for sensitive values) or Cypress.expose() (for public configuration)
+2. Set allowCypressEnv: false in your Cypress configuration to disable Cypress.env()
+
+Learn more: https://on.cypress.io/cypress-env-migration
+
+Cypress detected policy settings on your computer that may cause issues.
+
+The following policies were detected that may prevent Cypress from automating Chrome:
+
+ - HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionSettings
+
+For more information, see https://on.cypress.io/bad-browser-policy
+
+====================================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        15.21.1                                                                        │
+  │ Browser:        Electron 138 (headless)                                                        │
+  │ Node Version:   v24.12.0 (C:\Program Files\nodejs\node.exe)                                    │
+  │ Specs:          5 found (ui/06-support.cy.js, api/02-tickets.cy.js, ui/07-support-validation.c │
+  │                 y.js, ui/02-catalog.cy.js, ui/05-cookie-banner.cy.js)                          │
+  │ Searched:       C:\Users\teoph\OneDrive\Bureau\M1\Quality\Assignement3\assi3\shop-automation\s │
+  │                 hop-automation\tests\ui\06-support.cy.js, C:\Users\teoph\OneDrive\Bureau\M1\Qu │
+  │                 ality\Assignement3\assi3\shop-automation\shop-automation\tests\api\02-tickets. │
+  │                 cy.js, C:\Users\teoph\OneDrive\Bureau\M1\Quality\Assignement3\assi3\shop-autom │
+  │                 ation\shop-automation\tests\ui\07-support-validation.cy.js, C:\Users\teoph\One │
+  │                 Drive\Bureau\M1\Quality\Assignement3\assi3\shop-automation\shop-automation\tes │
+  │                 ts\ui\02-catalog.cy.js, C:\Users\teoph\OneDrive\Bureau\M1\Quality\Assignement3 │
+  │                 \assi3\shop-automation\shop-automation\tests\ui\05-cookie-banner.cy.js         │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  ui/06-support.cy.js                                                             (1 of 5)
+
+
+  06 - Support / return request
+    √ UI-SUP-01 - submits a valid request, confirms it and proves it was stored (2842ms)
+    √ UI-SUP-02 - blocks an empty form, names every missing field and sends nothing (328ms)
+    √ UI-SUP-07 - asks for confirmation: cancel keeps the request, confirm deletes it (755ms)
+    √ UI-SUP-08 - keeps a submitted request after a full page reload (3606ms)
+    √ UI-SUP-09 - regression: the catalogue still searches after the Support view was added (1783ms)
+    √ UI-SUP-10 - a second user never sees another user request (863ms)
+
+
+  6 passing (10s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        6                                                                                │
+  │ Passing:      6                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     10 seconds                                                                       │
+  │ Spec Ran:     ui/06-support.cy.js                                                              │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started compressing: Compressing to 28 CRF                                                     
+  -  Finished compressing: 0 seconds                                                 
+
+  -  Video output: C:\Users\teoph\OneDrive\Bureau\M1\Quality\Assignement3\assi3\shop-automation\shop-automation\cypress\videos\ui\06-support.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  api/02-tickets.cy.js                                                            (2 of 5)
+
+
+  API 02 - return requests (tickets)
+    √ API-09 - refuses an unauthenticated call with 401 and a Bearer challenge (51ms)
+    √ API-10 - rejects an invalid payload with 422 and one message per field (26ms)
+    √ API-11 - creates a request (201 + Location) that can be read back identically (35ms)
+    √ API-12 - updates the status, deletes the request, then answers 404 (44ms)
+    √ API-13 - a second user cannot read or delete another user request (403) (48ms)
+
+
+  5 passing (255ms)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        5                                                                                │
+  │ Passing:      5                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     0 seconds                                                                        │
+  │ Spec Ran:     api/02-tickets.cy.js                                                             │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started compressing: Compressing to 28 CRF                                                     
+  -  Finished compressing: 0 seconds                                                 
+
+  -  Video output: C:\Users\teoph\OneDrive\Bureau\M1\Quality\Assignement3\assi3\shop-automation\shop-automation\cypress\videos\api\02-tickets.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  ui/07-support-validation.cy.js                                                  (3 of 5)
+
+
+  07 - Support form validation
+    √ UI-SUP-03 - accepts the lowest accepted quantity (1) (2684ms)
+    √ UI-SUP-03 - accepts the highest accepted quantity (5) (2608ms)
+    √ UI-SUP-04 - refuses an order reference that is not SHOP-12345 (data-driven) (3546ms)
+    √ UI-SUP-04 - refuses a full name of two characters (data-driven) (3439ms)
+    √ UI-SUP-04 - refuses a quantity of six (data-driven) (3640ms)
+    √ UI-SUP-04 - refuses a description of eighteen characters (data-driven) (2899ms)
+    √ UI-SUP-04 - refuses a purchase date in the future (data-driven) (3197ms)
+    √ UI-SUP-04 - refuses a purchase date older than one year (data-driven) (2785ms)
+    √ UI-SUP-04 - refuses an unchecked return policy (data-driven) (2598ms)
+    √ UI-SUP-05 - refuses an unsupported file type before calling the API (2642ms)
+    √ UI-SUP-05b - refuses a file heavier than 1 MB (2715ms)
+    √ UI-SUP-06 - updates the character counter live and caps the text area at 500 (941ms)
+
+
+  12 passing (34s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        12                                                                               │
+  │ Passing:      12                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     34 seconds                                                                       │
+  │ Spec Ran:     ui/07-support-validation.cy.js                                                   │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started compressing: Compressing to 28 CRF                                                     
+  -  Finished compressing: 1 second                                                  
+
+  -  Video output: C:\Users\teoph\OneDrive\Bureau\M1\Quality\Assignement3\assi3\shop-automation\shop-automation\cypress\videos\ui\07-support-validation.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  ui/02-catalog.cy.js                                                             (4 of 5)
+
+
+  02 - Catalogue: search and sorting
+    √ UI-CAT-01 - filters the catalogue on a search term (752ms)
+    √ UI-CAT-02 - shows an explicit empty state when nothing matches (584ms)
+    √ UI-CAT-03 - sorts the catalogue by ascending price and keeps the selected option (347ms)
+
+
+  3 passing (2s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        3                                                                                │
+  │ Passing:      3                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     1 second                                                                         │
+  │ Spec Ran:     ui/02-catalog.cy.js                                                              │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started compressing: Compressing to 28 CRF                                                     
+  -  Finished compressing: 0 seconds                                                 
+
+  -  Video output: C:\Users\teoph\OneDrive\Bureau\M1\Quality\Assignement3\assi3\shop-automation\shop-automation\cypress\videos\ui\02-catalog.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  ui/05-cookie-banner.cy.js                                                       (5 of 5)
+
+
+  05 - Cookie banner
+    √ UI-COOKIE-01 - hides the banner once accepted (330ms)
+
+
+  1 passing (275ms)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     0 seconds                                                                        │
+  │ Spec Ran:     ui/05-cookie-banner.cy.js                                                        │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started compressing: Compressing to 28 CRF                                                     
+  -  Finished compressing: 0 seconds                                                 
+
+  -  Video output: C:\Users\teoph\OneDrive\Bureau\M1\Quality\Assignement3\assi3\shop-automation\shop-automation\cypress\videos\ui\05-cookie-banner.cy.js.mp4
+
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ √  ui/06-support.cy.js                      00:10        6        6        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ √  api/02-tickets.cy.js                     259ms        5        5        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ √  ui/07-support-validation.cy.js           00:34       12       12        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ √  ui/02-catalog.cy.js                      00:01        3        3        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ √  ui/05-cookie-banner.cy.js                359ms        1        1        -        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    √  All specs passed!                        00:47       27       27        -        -        -  
+
+
+# worker 1 PASSED in 78s

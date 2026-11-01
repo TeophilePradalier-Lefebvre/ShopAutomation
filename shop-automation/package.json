@@ -1,0 +1,25 @@
+{
+  "name": "shop-ui-cypress-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "UI + API test automation with Cypress - demo e-commerce SHOP + DummyJSON public API (group assignment)",
+  "scripts": {
+    "start": "node server.js",
+    "test": "cypress run",
+    "test:ui": "cypress run --spec \"tests/ui/**/*.cy.js\"",
+    "test:api": "cypress run --spec \"tests/api/**/*.cy.js\"",
+    "test:parallel": "node scripts/run-parallel.js --workers 2",
+    "test:open": "cypress open",
+    "labs": "cypress run --spec \"tests/labs/**/*.cy.js\" --config specPattern=tests/labs/**/*.cy.js",
+    "test:api:public": "cypress run --config \"baseUrl=https://dummyjson.com,specPattern=tests/api-public/**/*.cy.js\"",
+    "test:report": "cypress run --reporter junit --reporter-options \"mochaFile=reports/junit/results-[hash].xml\"",
+    "evidence:summary": "node scripts/summarize-evidence.js"
+  },
+  "devDependencies": {
+    "@testing-library/cypress": "10.1.3",
+    "cypress": "15.21.1"
+  },
+  "engines": {
+    "node": ">=20 <25"
+  }
+}

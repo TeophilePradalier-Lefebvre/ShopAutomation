@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SHOP - demo e-commerce</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">SHOP / PRODUCTS</div>
+    <a href="#support" class="support-link" data-testid="support-link">Support</a>
+    <a href="#cart" class="cart-link" data-testid="cart-link" aria-label="Cart">
+      Cart (<span data-testid="cart-count">0</span>)
+    </a>
+  </header>
+
+  <main id="app">
+    <!-- 1. LOGIN -->
+    <section id="view-login" class="view">
+      <h1>Sign in</h1>
+      <form id="login-form" novalidate>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="username" placeholder="you@example.com" />
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" />
+
+        <button type="submit" data-testid="sign-in">Sign in</button>
+      </form>
+      <p class="alert" role="alert" data-testid="login-error" hidden></p>
+      <p class="hint">Compte de test : <code>qa@example.com</code> / <code>Sup3rSecre7!</code></p>
+    </section>
+
+    <!-- 2. PRODUCTS -->
+    <section id="view-products" class="view" hidden>
+      <h1 data-testid="products-title">Products</h1>
+
+      <div class="toolbar">
+        <input id="search" type="search" aria-label="Search products" placeholder="Search products" />
+        <button type="button" data-testid="search-submit">Search</button>
+        <select id="sort" aria-label="Sort by" data-testid="sort-by">
+          <option value="name-asc">Name (A-Z)</option>
+          <option value="price-asc">Price (low to high)</option>
+          <option value="price-desc">Price (high to low)</option>
+        </select>
+      </div>
+
+      <p class="alert" role="status" data-testid="no-results" hidden></p>
+      <div id="grid" class="grid" data-testid="product-grid"></div>
+    </section>
+
+    <!-- 3. CART -->
+    <section id="view-cart" class="view" hidden>
+      <h1>Cart</h1>
+      <p class="alert" role="status" data-testid="cart-empty">Your cart is empty.</p>
+      <ul id="cart-items" class="cart-list"></ul>
+      <p class="subtotal">Subtotal: $<span data-testid="cart-subtotal">0.00</span></p>
+
+      <fieldset class="shipping">
+        <legend>Shipping</legend>
+        <label><input type="radio" name="shipping" value="standard" data-testid="shipping-standard" checked /> Standard ($0)</label>
+        <label><input type="radio" name="shipping" value="express" data-testid="shipping-express" /> Express ($9)</label>
+      </fieldset>
+
+      <p class="total">Total: $<span data-testid="cart-total">0.00</span></p>
+
+      <button type="button" data-testid="continue-checkout">Continue checkout</button>
+    </section>
+
+    <!-- 4. CHECKOUT -->
+    <section id="view-checkout" class="view" hidden>
+      <h1>Checkout</h1>
+      <p class="hint">Payment is hosted in a separate iframe (cross-document scope).</p>
+      <iframe id="payment-frame" data-testid="payment-frame" title="Payment" src="payment.html" height="190" width="420"></iframe>
+      <div>
+        <button type="button" data-testid="place-order">Place order</button>
+      </div>
+      <p class="alert ok" role="status" data-testid="order-confirmation" hidden>Order placed</p>
+    </section>
+
+    <!-- 5. SUPPORT: return request (text, number, textarea, date, file, dialog) -->
+    <section id="view-support" class="view" hidden>
+      <h1 data-testid="support-title">Return request</h1>
+      <p class="hint">Every field is validated server-side too: the UI is a convenience, not the guard.</p>
+
+      <form id="ticket-form" novalidate data-testid="ticket-form">
+        <label for="ticket-reference">Order reference</label>
+        <input id="ticket-reference" name="reference" type="text" placeholder="SHOP-12345"
+               data-testid="ticket-reference" autocomplete="off" />
+        <p class="field-error" role="alert" data-testid="error-reference" hidden></p>
+
+        <label for="ticket-name">Full name</label>
+        <input id="ticket-name" name="name" type="text" data-testid="ticket-name" autocomplete="name" />
+        <p class="field-error" role="alert" data-testid="error-name" hidden></p>
+
+        <label for="ticket-quantity">Quantity affected</label>
+        <input id="ticket-quantity" name="quantity" type="number" min="1" max="5" step="1"
+               data-testid="ticket-quantity" />
+        <p class="field-error" role="alert" data-testid="error-quantity" hidden></p>
+
+        <label for="ticket-description">Description</label>
+        <textarea id="ticket-description" name="description" rows="4" maxlength="500"
+                  data-testid="ticket-description"></textarea>
+        <p class="counter" data-testid="description-counter">0 / 500</p>
+        <p class="field-error" role="alert" data-testid="error-description" hidden></p>
+
+        <label for="ticket-date">Purchase date</label>
+        <input id="ticket-date" name="purchasedOn" type="date" data-testid="ticket-purchasedOn" />
+        <p class="field-error" role="alert" data-testid="error-purchasedOn" hidden></p>
+
+        <label for="ticket-photo">Photo of the item (png, jpg or pdf, max 1 MB)</label>
+        <input id="ticket-photo" name="photo" type="file" accept=".png,.jpg,.jpeg,.pdf"
+               data-testid="ticket-photo" />
+        <p class="file-name" data-testid="photo-name" hidden></p>
+        <p class="field-error" role="alert" data-testid="error-photo" hidden></p>
+
+        <label class="inline">
+          <input type="checkbox" data-testid="ticket-terms" /> I accept the 30-day return policy
+        </label>
+        <p class="field-error" role="alert" data-testid="error-terms" hidden></p>
+
+        <div class="actions">
+          <button type="submit" data-testid="submit-ticket">Submit request</button>
+          <button type="button" data-testid="clear-ticket">Clear form</button>
+        </div>
+      </form>
+
+      <p class="alert ok" role="status" data-testid="ticket-confirmation" hidden></p>
+
+      <h2>My requests</h2>
+      <p data-testid="ticket-empty">No request yet.</p>
+      <ul id="ticket-list" class="ticket-list" data-testid="ticket-list"></ul>
+    </section>
+  </main>
+
+  <!-- Confirmation dialog (custom, so both branches are observable) -->
+  <div id="confirm-dialog" class="modal" role="dialog" aria-modal="true"
+       aria-labelledby="confirm-title" data-testid="confirm-dialog" hidden>
+    <div class="modal-box">
+      <h2 id="confirm-title">Delete this request?</h2>
+      <p data-testid="confirm-target"></p>
+      <div class="actions">
+        <button type="button" data-testid="confirm-delete">Delete</button>
+        <button type="button" data-testid="cancel-delete">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie banner (overlay) -->
+  <div class="cookie-banner" data-testid="cookie-banner">
+    <span>We use cookies to remember your cart.</span>
+    <button type="button" data-testid="accept-cookies">Accept</button>
+  </div>
+
+  <!-- Synchronisation mask: simulates a slow API hydration -->
+  <div id="mask" class="mask" data-testid="cart-mask" hidden>
+    <div class="mask-box">Syncing cart…</div>
+  </div>
+
+  <div class="toast" id="toast" role="status" data-testid="toast" hidden></div>
+
+  <script src="app.js"></script>
+  <script src="support.js"></script>
+</body>
+</html>

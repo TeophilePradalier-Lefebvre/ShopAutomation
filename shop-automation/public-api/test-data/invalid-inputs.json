@@ -1,0 +1,10 @@
+[
+  { "id": "TC56", "label": "negative limit (limit=-1)", "path": "/products?limit=-1" },
+  { "id": "TC57", "label": "non-numeric limit (limit=abc)", "path": "/products?limit=abc" },
+  { "id": "TC58", "label": "negative skip (skip=-5)", "path": "/products?skip=-5" },
+  { "id": "TC59", "label": "select on an unknown field", "path": "/products?select=unknownField" },
+  { "id": "TC60", "label": "sortBy on an unknown field", "path": "/products?sortBy=unknownField" },
+  { "id": "TC61", "label": "invalid order (order=sideways)", "path": "/products?order=sideways" },
+  { "id": "TC62", "label": "non-numeric delay (delay=abc)", "path": "/products?limit=1&delay=abc" },
+  { "id": "TC63", "label": "non-integer id (/products/abc)", "path": "/products/abc" }
+]

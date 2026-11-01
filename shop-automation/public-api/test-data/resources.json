@@ -1,0 +1,7 @@
+[
+  { "name": "posts", "key": "posts" },
+  { "name": "comments", "key": "comments" },
+  { "name": "todos", "key": "todos" },
+  { "name": "quotes", "key": "quotes" },
+  { "name": "recipes", "key": "recipes" }
+]

@@ -1,0 +1,42 @@
+name: UI tests (Cypress)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Node 24 : c'est la version utilisee en local et la seule supportee
+      # par cypress-io/github-action v7 (v7.0.0 = Node 24, v7.2.0 = abandon de Node 20).
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Smoke suite rapide sur chaque PR : contrat identique au poste de dev.
+      # v7 = version courante de l'action, verifiee sur le depot officiel le 29/10/2026.
+      - name: Run Cypress (smoke)
+        uses: cypress-io/github-action@v7
+        with:
+          start: npm start
+          wait-on: 'http://localhost:3000'
+          browser: chrome
+          config: video=true,screenshotOnRunFailure=true
+
+      # Preuves : captures des echecs + rapport au format standard CI.
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cypress-artifacts
+          path: |
+            cypress/screenshots
+            cypress/videos
+          retention-days: 7

@@ -1,0 +1,166 @@
+# worker 2 | port 3101 | specs: cypress/e2e/api/01-auth-products.cy.js, cypress/e2e/07-support-validation.cy.js, cypress/e2e/01-login.cy.js
+SHOP demo app (UI + API v1) running on http://localhost:3101
+Warning: The allowCypressEnv configuration option is enabled. This allows any browser code to read values from Cypress.env(). This is insecure and will be removed in a future major version.
+
+1. Replace Cypress.env() calls with cy.env() (for sensitive values) or Cypress.expose() (for public configuration)
+2. Set allowCypressEnv: false in your Cypress configuration to disable Cypress.env()
+
+Learn more: https://on.cypress.io/cypress-env-migration
+
+
+================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        15.21.1                                                                        │
+  │ Browser:        Electron 138 (headless)                                                        │
+  │ Node Version:   v24.19.0 (/usr/bin/node)                                                       │
+  │ Specs:          3 found (api/01-auth-products.cy.js, 07-support-validation.cy.js, 01-login.cy. │
+  │                 js)                                                                            │
+  │ Searched:       cypress/e2e/api/01-auth-products.cy.js, cypress/e2e/07-support-validation.cy.j │
+  │                 s, cypress/e2e/01-login.cy.js                                                  │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  api/01-auth-products.cy.js                                                      (1 of 3)
+
+
+  API 01 - health, authentication and catalogue
+    ✓ API-01 - GET /health exposes the service contract and safe headers (134ms)
+    ✓ API-02 - POST /auth/login returns a bearer token and never echoes the password (78ms)
+    ✓ API-03 - POST /auth/login refuses a wrong password with 401 INVALID_CREDENTIALS (88ms)
+    ✓ API-04 - GET /products returns the whole catalogue sorted by name (87ms)
+    ✓ API-05 - GET /products honours sort and pagination (58ms)
+    ✓ API-06 - GET /products rejects out-of-range query parameters (boundaries) (135ms)
+    ✓ API-07 - GET /products/:id returns one product, or 404 PRODUCT_NOT_FOUND (81ms)
+    ✓ API-08 - the router answers 405 with Allow, and 404 on an unknown route (62ms)
+
+
+  8 passing (1s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        8                                                                                │
+  │ Passing:      8                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     1 second                                                                         │
+  │ Spec Ran:     api/01-auth-products.cy.js                                                       │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started compressing: Compressing to 28 CRF                                                     
+  -  Finished compressing: 1 second                                                  
+
+  -  Video output: /home/user/cypress-ui-lab/cypress/videos/api/01-auth-products.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  07-support-validation.cy.js                                                     (2 of 3)
+
+
+  07 - Support form validation
+    ✓ UI-SUP-03 - accepts the lowest accepted quantity (1) (3002ms)
+    ✓ UI-SUP-03 - accepts the highest accepted quantity (5) (2819ms)
+    ✓ UI-SUP-04 - refuses an order reference that is not SHOP-12345 (data-driven) (2595ms)
+    ✓ UI-SUP-04 - refuses a full name of two characters (data-driven) (2464ms)
+    ✓ UI-SUP-04 - refuses a quantity of six (data-driven) (2616ms)
+    ✓ UI-SUP-04 - refuses a description of eighteen characters (data-driven) (1963ms)
+    ✓ UI-SUP-04 - refuses a purchase date in the future (data-driven) (2584ms)
+    ✓ UI-SUP-04 - refuses a purchase date older than one year (data-driven) (2506ms)
+    ✓ UI-SUP-04 - refuses an unchecked return policy (data-driven) (2422ms)
+    ✓ UI-SUP-05 - refuses an unsupported file type before calling the API (2501ms)
+    ✓ UI-SUP-05b - refuses a file heavier than 1 MB (2545ms)
+    ✓ UI-SUP-06 - updates the character counter live and caps the text area at 500 (948ms)
+
+
+  12 passing (29s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        12                                                                               │
+  │ Passing:      12                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     29 seconds                                                                       │
+  │ Spec Ran:     07-support-validation.cy.js                                                      │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started compressing: Compressing to 28 CRF                                                     
+  -  Finished compressing: 2 seconds                                                 
+
+  -  Video output: /home/user/cypress-ui-lab/cypress/videos/07-support-validation.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  01-login.cy.js                                                                  (3 of 3)
+
+
+  01 - Authentification
+    ✓ connecte un utilisateur valide et affiche le catalogue (791ms)
+    ✓ refuse un mot de passe invalide sans quitter la page de connexion (733ms)
+
+
+  2 passing (2s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        2                                                                                │
+  │ Passing:      2                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     1 second                                                                         │
+  │ Spec Ran:     01-login.cy.js                                                                   │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started compressing: Compressing to 28 CRF                                                     
+  -  Finished compressing: 0 seconds                                                 
+
+  -  Video output: /home/user/cypress-ui-lab/cypress/videos/01-login.cy.js.mp4
+
+
+================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ ✔  api/01-auth-products.cy.js               00:01        8        8        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  07-support-validation.cy.js              00:29       12       12        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  01-login.cy.js                           00:01        2        2        -        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ✔  All specs passed!                        00:32       22       22        -        -        -  
+
+
+# worker 2 PASSED in 52s

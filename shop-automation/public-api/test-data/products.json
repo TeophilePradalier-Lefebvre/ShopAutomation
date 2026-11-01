@@ -1,0 +1,7 @@
+{
+  "newProduct": { "title": "QA Notebook", "price": 12.5 },
+  "fullProduct": { "title": "BMW Pencil", "price": 9.99, "brand": "BMW", "category": "stationery" },
+  "patch": { "title": "Updated for QA class" },
+  "partialPatch": { "title": "Only title changed" },
+  "put": { "title": "PUT for QA class" }
+}

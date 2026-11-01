@@ -1,0 +1,51 @@
+{
+  "description": "One row per validation rule. A row overrides exactly one field of a valid request, so a failure points at that field and nothing else.",
+  "boundaries": [
+    { "case": "lowest accepted quantity (1)", "quantity": "1" },
+    { "case": "highest accepted quantity (5)", "quantity": "5" }
+  ],
+  "invalid": [
+    {
+      "case": "an order reference that is not SHOP-12345",
+      "field": "reference",
+      "value": "SHOP-1234",
+      "message": "Use the format SHOP-12345"
+    },
+    {
+      "case": "a full name of two characters",
+      "field": "name",
+      "value": "Al",
+      "message": "Full name must be between 3 and 60 characters"
+    },
+    {
+      "case": "a quantity of six",
+      "field": "quantity",
+      "value": "6",
+      "message": "Quantity must be a whole number between 1 and 5"
+    },
+    {
+      "case": "a description of eighteen characters",
+      "field": "description",
+      "value": "Too short to pass.",
+      "message": "Description must be between 20 and 500 characters"
+    },
+    {
+      "case": "a purchase date in the future",
+      "field": "purchasedOn",
+      "dateOffset": 1,
+      "message": "Purchase date must be a valid date, not in the future, and within the last year"
+    },
+    {
+      "case": "a purchase date older than one year",
+      "field": "purchasedOn",
+      "dateOffset": -400,
+      "message": "Purchase date must be a valid date, not in the future, and within the last year"
+    },
+    {
+      "case": "an unchecked return policy",
+      "field": "terms",
+      "value": false,
+      "message": "You must accept the return policy"
+    }
+  ]
+}

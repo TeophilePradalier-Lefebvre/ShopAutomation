@@ -1,0 +1,12 @@
+{
+  "primary": {
+    "email": "qa@example.com",
+    "password": "Sup3rSecre7!",
+    "label": "primary test user (owns the data created by the suite)"
+  },
+  "secondary": {
+    "email": "reviewer@example.com",
+    "password": "Rev1ewPass!",
+    "label": "second user, used only to prove cross-user access is refused"
+  }
+}

@@ -1,0 +1,153 @@
+# worker 3 | port 3102 | specs: tests/api/02-tickets.cy.js, tests/ui/04-checkout.cy.js, tests/ui/05-cookie-banner.cy.js
+SHOP demo app (UI + API v1) running on http://localhost:3102
+Warning: The allowCypressEnv configuration option is enabled. This allows any browser code to read values from Cypress.env(). This is insecure and will be removed in a future major version.
+
+1. Replace Cypress.env() calls with cy.env() (for sensitive values) or Cypress.expose() (for public configuration)
+2. Set allowCypressEnv: false in your Cypress configuration to disable Cypress.env()
+
+Learn more: https://on.cypress.io/cypress-env-migration
+
+
+================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        15.21.1                                                                        │
+  │ Browser:        Electron 138 (headless)                                                        │
+  │ Node Version:   v24.19.0 (/usr/bin/node)                                                       │
+  │ Specs:          3 found (api/02-tickets.cy.js, ui/04-checkout.cy.js, ui/05-cookie-banner.cy.js │
+  │                 )                                                                              │
+  │ Searched:       tests/api/02-tickets.cy.js, tests/ui/04-checkout.cy.js, tests/ui/05-cookie-ban │
+  │                 ner.cy.js                                                                      │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  api/02-tickets.cy.js                                                            (1 of 3)
+
+
+  API 02 - return requests (tickets)
+    ✓ API-09 - refuses an unauthenticated call with 401 and a Bearer challenge (87ms)
+    ✓ API-10 - rejects an invalid payload with 422 and one message per field (67ms)
+    ✓ API-11 - creates a request (201 + Location) that can be read back identically (79ms)
+    ✓ API-12 - updates the status, deletes the request, then answers 404 (99ms)
+    ✓ API-13 - a second user cannot read or delete another user request (403) (211ms)
+
+
+  5 passing (708ms)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        5                                                                                │
+  │ Passing:      5                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     0 seconds                                                                        │
+  │ Spec Ran:     api/02-tickets.cy.js                                                             │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started compressing: Compressing to 28 CRF                                                     
+  -  Finished compressing: 0 seconds                                                 
+
+  -  Video output: /home/user/cypress-ui-lab/cypress/videos/api/02-tickets.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  ui/04-checkout.cy.js                                                            (2 of 3)
+
+
+  04 - Checkout: synchronisation, iframe, delivery
+    ✓ UI-CHK-01 - waits for the synchronisation overlay to disappear instead of a fixed delay (1592ms)
+    ✓ UI-CHK-02 - fills the card inside the payment iframe and confirms the order (1870ms)
+    ✓ UI-CHK-03 - recalculates the total when express delivery is selected (1391ms)
+
+
+  3 passing (5s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        3                                                                                │
+  │ Passing:      3                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     4 seconds                                                                        │
+  │ Spec Ran:     ui/04-checkout.cy.js                                                             │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started compressing: Compressing to 28 CRF                                                     
+  -  Finished compressing: 1 second                                                  
+
+  -  Video output: /home/user/cypress-ui-lab/cypress/videos/ui/04-checkout.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  ui/05-cookie-banner.cy.js                                                       (3 of 3)
+
+
+  05 - Cookie banner
+    ✓ UI-COOKIE-01 - hides the banner once accepted (333ms)
+
+
+  1 passing (370ms)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     0 seconds                                                                        │
+  │ Spec Ran:     ui/05-cookie-banner.cy.js                                                        │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started compressing: Compressing to 28 CRF                                                     
+  -  Finished compressing: 0 seconds                                                 
+
+  -  Video output: /home/user/cypress-ui-lab/cypress/videos/ui/05-cookie-banner.cy.js.mp4
+
+
+================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ ✔  api/02-tickets.cy.js                     711ms        5        5        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  ui/04-checkout.cy.js                     00:04        3        3        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  ui/05-cookie-banner.cy.js                371ms        1        1        -        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ✔  All specs passed!                        00:06        9        9        -        -        -  
+
+
+# worker 3 PASSED in 25s

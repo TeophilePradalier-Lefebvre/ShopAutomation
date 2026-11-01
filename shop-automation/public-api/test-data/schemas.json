@@ -1,0 +1,18 @@
+{
+  "productSummary": { "id": "number", "title": "string", "price": "number" },
+  "product": {
+    "id": "number", "title": "string", "description": "string", "category": "string",
+    "price": "number", "rating": "number", "stock": "number", "tags": "array",
+    "images": "array", "thumbnail": "string"
+  },
+  "user": {
+    "id": "number", "firstName": "string", "lastName": "string", "age": "number",
+    "gender": "string", "email": "string", "username": "string", "role": "string"
+  },
+  "cart": {
+    "id": "number", "products": "array", "total": "number", "discountedTotal": "number",
+    "userId": "number", "totalProducts": "number", "totalQuantity": "number"
+  },
+  "post": { "id": "number", "title": "string", "body": "string", "tags": "array", "userId": "number" },
+  "loginResponse": { "id": "number", "username": "string", "accessToken": "string", "refreshToken": "string" }
+}
