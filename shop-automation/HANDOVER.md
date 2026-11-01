@@ -20,7 +20,7 @@ just answers the two questions asked today: **which application / locator strate
 
 ```
 tests/ui/**/*.cy.js    31 UI tests   <- ours
-tests/api/**/*.cy.js   13 API tests  <- API owner (may replace ours)
+tests/api/**/*.cy.js   13 API tests  <- SHOP API suite (kept as is; the DummyJSON suite is added in tests/api-public)
 tests/labs/**/*.cy.js   2 red labs   <- deliberately failing, outside specPattern
 cypress/support/        framework: commands, page objects, API client, utils
 cypress/fixtures/       users.json, return-requests.json (data-driven rows)

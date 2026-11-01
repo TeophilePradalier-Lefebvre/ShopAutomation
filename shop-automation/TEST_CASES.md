@@ -41,12 +41,12 @@ SC schema/contract, A auth, C CRUD, H headers, E error handling.
 
 | ID | Method and endpoint | Type | Expected result | Status |
 | --- | --- | --- | --- | --- |
-| API-01 | `GET /api/v1/health` | SC, H | 200, `{status:'ok', version:'v1'}`, `Content-Type: application/json`, `no-store`, `nosniff` | Pass |
+| API-01 | `GET /api/v1/health` | SC, H | 200, `{status:'ok', service:'shop-api', version:'1.0.0', uptimeSeconds}`, `Content-Type: application/json`, `no-store`, `nosniff` | Pass |
 | API-02 | `POST /api/v1/auth/login` | P, SC, H | 200, 32-char `token`, user email, body never contains the password | Pass |
 | API-03 | `POST /api/v1/auth/login` (wrong password) | N, E | 401 `INVALID_CREDENTIALS`, no token | Pass |
-| API-04 | `GET /api/v1/products` | P, SC | 200, array of products, required fields and types, sorted by name | Pass |
+| API-04 | `GET /api/v1/products` | P, SC | 200, object with `items` (4 products), `total`, `limit`, `offset`; required fields and types; sorted by name | Pass |
 | API-05 | `GET /api/v1/products?sort=&limit=&offset=` | P, B | 200, honouring `limit` / `offset` / `sort` | Pass |
-| API-06 | `GET /api/v1/products?limit=0` etc. | N, B, E | 400 `INVALID_QUERY` with the offending parameter | Pass |
+| API-06 | `GET /api/v1/products?limit=0` etc. | N, B, E | 400 `INVALID_PARAMETER` with the offending parameter | Pass |
 | API-07 | `GET /api/v1/products/:id` | P, N | 200 for a known id, 404 `PRODUCT_NOT_FOUND` otherwise | Pass |
 | API-08 | `DELETE /api/v1/health`, `GET /api/v1/unknown` | N, E, H | 405 with `Allow`, 404 `NOT_FOUND` on an unknown route | Pass |
 | API-09 | `GET /api/v1/tickets` without token | N, A, H | 401 with a `Bearer` challenge | Pass |
