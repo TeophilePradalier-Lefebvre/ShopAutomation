@@ -3,13 +3,32 @@
 > Deliverable F of the brief: the area, the files and what each member can personally explain
 > during the demonstration. Every member is also expected to understand the whole framework.
 
-## Chris KOUAO & Leynel LOWE YOUMBI - UI implementation (application screens + `tests/ui`)
+## Chris KOUAO - UI implementation: shop journey (specs 01 to 05 + labs)
 
 | Item | Detail |
 | --- | --- |
-| Area | Application under test, page-object layer, shared commands, UI specs, mandatory UI controls |
-| Files | `server.js`, `public/index.html`, `public/app.js`, `public/support.js`, `public/styles.css`, `cypress/support/e2e.js`, `cypress/support/commands.js`, `cypress/support/pages/*.js`, `tests/ui/01-login.cy.js` to `tests/ui/07-support-validation.cy.js`, `tests/labs/*` |
-| Can explain | why the Support / return-request screen exists (textarea, number field, file and image upload, date picker, native dialog, live counter - one screen with real behaviour instead of seven disconnected mock controls); why the dropdown requirement is covered by the catalogue sort selector; scoping vs `cy.contains` (why `.filter().should('have.length', 1)` proves uniqueness and `cy.contains` does not); the iframe handling; the overlay/actionability story; why no `cy.wait(<ms>)` appears in the suite; how `UI-SUP-07`/`08` prove persistence and deletion |
+| Area | Shop journey (login, catalogue, cart, checkout, cookie banner), the two deliberately red labs, shared Cypress support layer |
+| UI specs | `tests/ui/01-login.cy.js`, `02-catalog.cy.js`, `03-cart.cy.js`, `04-checkout.cy.js`, `05-cookie-banner.cy.js` (13 tests) |
+| Labs (red on purpose) | `tests/labs/lab-1-overlay-actionability`, `tests/labs/lab-2-stock-defect` |
+| Application code | `public/app.js`, `public/payment.html`, `public/styles.css`, the login / catalogue / cart / checkout views of `public/index.html`, `server.js` (server, login, products) |
+| Cypress framework | `cypress/support/e2e.js`, `cypress/support/commands.js`, `cypress/support/pages/catalogPage.js` |
+| Mandatory controls | dropdown (catalogue sort selector), checkbox (gift wrap), radio (express delivery), payment iframe, overlay and cookie banner |
+| Documentation | `HANDOVER.md` (choice of the application and of the locators), `FAILURE_INVESTIGATION.md` section 5 (labs) |
+| Can explain | why the dropdown requirement is covered by the catalogue sort selector; scoping vs `cy.contains` (why `.filter().should('have.length', 1)` proves uniqueness and `cy.contains` does not); the iframe handling of the payment page; the overlay/actionability story (lab 1) and the stock defect (lab 2); why no `cy.wait(<ms>)` appears in the suite |
+
+## Leynel LOWE YOUMBI - UI implementation: Support / return-request screen (specs 06 and 07)
+
+| Item | Detail |
+| --- | --- |
+| Area | Support / return-request screen, its server-side validation, the page object and the data used by the Support specs |
+| UI specs | `tests/ui/06-support.cy.js` (6 tests), `tests/ui/07-support-validation.cy.js` (12 tests, including 9 data-driven iterations) |
+| Application code | `public/support.js`, the Support view of `public/index.html`, `server.js` (`validateTicket()` and the `/tickets` routes) |
+| Cypress framework | `cypress/support/pages/supportPage.js`, `cypress/fixtures/return-requests.json`, `cypress/fixtures/users.json` |
+| Mandatory controls | text field, number field, textarea with live counter, file and image upload, date picker, native confirmation dialog |
+| Documentation | `FAILURE_INVESTIGATION.md` sections 1 to 4, `README.md` section 5 (map of the controls) |
+| Can explain | why the Support / return-request screen exists (one screen with real behaviour instead of seven disconnected mock controls); how each control is exercised and asserted; how the data-driven validation specs produce one reported iteration per data row; how `UI-SUP-07`/`08` prove persistence and deletion; how the native dialog is handled |
+
+> Chris and Leynel each present their own block and can answer questions on the other's, as required by this file.
 
 ## Teophile PRADALIER-LEFEBVRE - API framework and integration
 
@@ -39,7 +58,7 @@
 
 | Item | Detail |
 | --- | --- |
-| Suite layout | `tests/ui/**` (31 UI tests), `tests/api/**` (13 SHOP API tests), `tests/api-public/**` (117 DummyJSON tests, opt-in), `tests/labs/**` (two deliberately red labs, outside `specPattern`) |
+| Suite layout | `tests/ui/**` (31 UI tests: 13 shop + 18 Support), `tests/api/**` (13 SHOP API tests), `tests/api-public/**` (117 DummyJSON tests, opt-in), `tests/labs/**` (two deliberately red labs, outside `specPattern`) |
 | Default run | `npm test` runs `tests/ui` + `tests/api` (offline). `npm run test:api:public` runs the DummyJSON suite (internet) |
 | Cypress version | `15.21.1`, pinned in `package.json` and `package-lock.json` (the DummyJSON suite was first run on 16.2.0; `Cypress.expose()` exists since 15.10) |
 | Inventory | `TEST_CASES.md` (SHOP) and `docs/Test_Case_Inventory.xlsx` (UI, SHOP API and DummyJSON API, 161 cases) |
